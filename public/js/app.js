@@ -1,29 +1,3 @@
-class App extends React.Component {
-  render () {
-    return (
-      <div className='section'>
-        <div className='header'>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-          <br/><br/><br/><br/><br/><br/><br/><br/>
-          // <p><img src="images/eb-logo.jpg" alt="EB" /></p>
-          <br/>
-          <h1 className='title'> Find a Movie </h1>
-          <h6>Type in Movie Title</h6>
-        </div>
-        <br/>
-        <br/>
-        <div className='columns'>
-        <Query />
-        <AboutMovie />
-
-        </div>
-      </div>
-    )
-  }
-}
-
-
-
 // Below Set form which will log the value of input upon submitting:
 class Query extends React.Component {
     constructor(props){
@@ -47,8 +21,8 @@ class Query extends React.Component {
           <input
               ref="title"
               type="text"
-              placeholder="Type Title of Movie" />
-          <input type="submit" value="Show Movie Info" />
+              placeholder="Type Title of Movie" id="input" />
+          <input type="submit" value="Show Movie Info" id="btn" />
           {
             (this.state.movieFound !== null)?
                 <AboutMovie data={this.state.movieFound}></AboutMovie>

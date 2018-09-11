@@ -1,18 +1,54 @@
+html {
+  background-image: url('/images/bulb.gif');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 body {
   font-family: Helvetica, sans-serif;
   padding: 50px 10%;
+  background-image: url('/images/posters.jpg');
+  height: 850px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15%;
 }
 
-button {
-  background-color: #046380;
-  color: #FFF;
+form {
+    text-align: center;
+    margin-top: 150px;
+}
+
+input {
+  font-family: 'Concert One', cursive;
+}
+
+#input {
+  margin-top: 0;
+  font-size: 2.4em;
+  font-weight: normal;
+  display: inline-block;
+  background-color: #FFB248;
+  color: #89346D;
+  border-color: #C76058;
+  box-shadow: 2px 2px 0 #1D1C53;
+  text-align: center;
+}
+
+#btn {
+  background-color: #1D1C53;
+  color: #FFD700;
   border: none;
   padding: 10px 15px;
-  font-size: 15px;
+  font-size: 25px;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
-  box-shadow: 2px 2px 0 #034154;
+  box-shadow: 2px 2px 0 #C76058;
   margin-bottom: 10px;
   margin-left: 18px;
   transition: opacity .4s ease-out, transform .4s ease-out, visibility .4s ease-out;
@@ -20,11 +56,12 @@ button {
   top: -10px;
 }
 
-button:hover {
-  background-color: #034F66;
+#btn:hover {
+  background-color: #89346D;
+  box-shadow: 5px 2px 40px #FFEDA7, -5px -2px 40px #32CCB0;
 }
 
-button:active {
+#btn:active {
   background-color: #034154;
   box-shadow: none;
   position: relative;
@@ -32,10 +69,15 @@ button:active {
   left: 2px;
 }
 
-p {
+li {
+  font-family: 'Concert One', cursive;
+  font-size: 25px;
+  color: #FFD700;
+  background-color: #1D1C53;
   padding: 4px 0 2px 8px;
   line-height: 1.7;
-  border-bottom: 1px dotted #DDD;
+  border-bottom: 1px dotted #FFD700;
   list-style: none;
   margin: 0;
+  border-radius: 2%;
 }
