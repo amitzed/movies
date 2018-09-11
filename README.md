@@ -1,26 +1,17 @@
-# README
+# [Find Your Favorite Movie](https://movie-finder-ajax.herokuapp.com/)
+##### Please click link/app-name above to see Heroku deployment.  If results do not show, please see top bar of your browser and click error icon to reveal info (if needed at all, you will only have to do that once).
+<p align="center">
+  <img src="movie1.png" width="650" title="hover text">
+</p>
 
 
+### Technologies Used:
+##### AJAX / JSON
+##### React JS
+##### Ruby on Rails
+##### Heroku
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+#### This simple Movie Information finder was created as a mini-project for GA and demonstrates how to make AJAX requests within REACT.  REACT does not currently have functionality built in to handle AJAX, thus FETCH was used to handle this.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### [Amit](https://amitzaman.com/)
