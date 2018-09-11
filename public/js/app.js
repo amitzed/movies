@@ -1,50 +1,83 @@
+class App extends React.Component {
+  render () {
+    return (
+      <div className='section'>
+        <div className='header'>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/><br/>
+          // <p><img src="images/eb-logo.jpg" alt="EB" /></p>
+          <br/>
+          <h1 className='title'> Find a Movie </h1>
+          <h6>Type in Movie Title</h6>
+        </div>
+        <br/>
+        <br/>
+        <div className='columns'>
+        <Query />
+        <AboutMovie />
+
+        </div>
+      </div>
+    )
+  }
+}
+
+
+
 // Below Set form which will log the value of input upon submitting:
-class OMDBQueryForm extends React.Component {
+class Query extends React.Component {
     constructor(props){
       super(props);
-      this.queryOMDB = this.queryOMDB.bind(this);
-      this.state = { foundMovie: null }
+      this.queryToOMDB = this.queryToOMDB.bind(this);
+      this.state = { movieFound: null }
       //Directly above, State was setup for Movie FOUND
     }
     // Below make FETCH request to Open Movie Database (OMDB):
-    queryOMDB(event){
+    queryToOMDB(event){
       event.preventDefault();
       fetch('http://www.omdbapi.com/?apikey=53aa2cd6&t=' + this.refs.title.value).then((response)=>{
         response.json().then((data)=>{
           // console.log(data); //Replaced this log with BELOW as the, so the State of the Form can be set properly:
-              this.setState({foundMovie: data});
+              this.setState({movieFound: data});
           });
       });
     }
     render(){
-      return <form onSubmit={this.queryOMDB}>
+      return <form onSubmit={this.queryToOMDB}>
           <input
               ref="title"
               type="text"
-              placeholder="Movie Title" />
-          <input type="submit" value="Find Movie Info" />
-          <MovieInfo data={this.state.foundMovie}></MovieInfo>
+              placeholder="Type Title of Movie" />
+          <input type="submit" value="Show Movie Info" />
+          {
+            (this.state.movieFound !== null)?
+                <AboutMovie data={this.state.movieFound}></AboutMovie>
+            :
+                null
+          }
       </form>
     }
 }
 // ABOVE ~Line 26, after creating new Component below, added it above to the QueryForm
-// Added the following above ~Line 26 inside opening tag: data={this.state.foundMovie} to pass on the variable to the Movie Compnent below.
+// Added the following above ~Line 26 inside opening tag: data={this.state.movieFound} to pass on the variable to the Movie Compnent below.
+// Displayed the component conditionally starting ~ Line27, because was getting error due to this.props.data not being initially defined.
 
 // Below, created a new COMPONENT which will handle movie data:
-class MovieInfo extends React.Component {
+class AboutMovie extends React.Component {
     render(){
-        return <ul>
-            <li>Title:</li>
-            <li>Director:</li>
-            <li>Actors:</li>
-            <li>Year:</li>
-            <li>Rated:</li>
-        </ul>
+      return <ul>
+          <li>Title: {this.props.data.Title}</li>
+          <li>Actors: {this.props.data.Actors}</li>
+          <li>Director: {this.props.data.Director}</li>
+          <li>Year: {this.props.data.Year}</li>
+          <li>Rated: {this.props.data.Rated}</li>
+          <li>Plot: {this.props.data.Plot}</li>
+      </ul>
     }
 }
 
 
 ReactDOM.render(
-    <OMDBQueryForm></OMDBQueryForm>,
+    <Query></Query>,
     document.querySelector('main')
 );
